@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1066626079374",
+    "firebase_url": "https://eyedive-3bb21.firebaseio.com",
+    "project_id": "eyedive-3bb21",
+    "storage_bucket": "eyedive-3bb21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066626079374:android:53b4c2185b0c373db187df",
+        "android_client_info": {
+          "package_name": "com.example.eyedive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066626079374-ktbfcuhp9jf53sv0ehq4bpiiqlbqqhib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eyedive",
+            "certificate_hash": "06148746c5bb3f28a0dbc227530e96c31c575f13"
+          }
+        },
+        {
+          "client_id": "1066626079374-vcstblvekvuosbi0b56isp3s7874vkmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdMWCjG2vaMdwnz68cumMe0vL-LrYK1yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066626079374-vcstblvekvuosbi0b56isp3s7874vkmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
