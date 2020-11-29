@@ -13,11 +13,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.eyedive.Model.Users;
+import com.example.eyedive.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button LoginButton;
     private ProgressDialog LoadingBar;
     private String dbname = "Users";
+    private CheckBox chkBoxRememberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,12 @@ public class LoginActivity extends AppCompatActivity {
         LoginButton = (Button) findViewById(R.id.login_btn);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
+
         LoadingBar= new ProgressDialog(this);
+
+        chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        Paper.init(this);
+
 
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +75,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AllowAccessToAccount(String phone, String password) {
+        if (chkBoxRememberMe.isChecked()){
+            Paper.book().write(Prevalent.UserPhoneKey,phone);
+            Paper.book().write(Prevalent.UserPasswordkey,password);
+        }
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -81,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                              startActivity(intent);
                          }else {
                              Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                             LoadingBar.dismiss();
                          }
                      }
                 }else {
