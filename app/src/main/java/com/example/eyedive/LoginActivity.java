@@ -87,17 +87,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(dbname).child(phone).exists()){
                     Users usersdata = snapshot.child(dbname).child(phone).getValue(Users.class);
-                     if (usersdata.getPhone().equals(phone)){
-                         if (usersdata.getPassword().equals(password)){
-                             Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                             LoadingBar.dismiss();
-                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                             startActivity(intent);
-                         }else {
-                             Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
-                             LoadingBar.dismiss();
-                         }
-                     }
+                    if (usersdata.getPhone().equals(phone)){
+                        if (usersdata.getPassword().equals(password)){
+                            Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                            LoadingBar.dismiss();
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(intent);
+                        }else {
+                            Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                            LoadingBar.dismiss();
+                        }
+                    }
                 }else {
                     Toast.makeText(LoginActivity.this, "Account with this" + phone + "DOESN'T exists", Toast.LENGTH_SHORT).show();
                     LoadingBar.dismiss();
