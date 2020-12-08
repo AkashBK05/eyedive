@@ -119,14 +119,14 @@ public class RegisterActivity extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!(snapshot.child("Users").child(phone).exists())){
+                if(!(snapshot.child("User").child(phone).exists())){
                     HashMap<String, Object> userdataMap = new HashMap<>();
                     userdataMap.put("phone",phone);
                     userdataMap.put("password",password);
                     userdataMap.put("name",name);
                     userdataMap.put("emailId",emailId);
 
-                    RootRef.child("Users").child(phone).updateChildren(userdataMap)
+                    RootRef.child("User").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
