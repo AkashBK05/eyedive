@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".AdminCategoryActivity">
 
     <TextView
@@ -33,14 +34,14 @@
             android:id="@+id/glasses"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/glasses"
+            android:src="@drawable/sunglasses"
             />
 
         <ImageView
             android:id="@+id/purses_bags_wallets"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/purses_bags"
+            android:src="@drawable/eye_glasses"
             />
     </LinearLayout>
 
@@ -58,14 +59,14 @@
             android:id="@+id/hats_caps"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/hats"
+            android:src="@drawable/contact_lens"
             />
 
         <ImageView
             android:id="@+id/shoes"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/shoess"
+            android:src="@drawable/computer_glasses"
             android:layout_marginStart="16dp"
             />
 

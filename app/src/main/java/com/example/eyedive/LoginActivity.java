@@ -112,9 +112,9 @@ public class LoginActivity extends AppCompatActivity {
                     if (usersdata.getPhone().equals(phone)){
                         if (usersdata.getPassword().equals(password)){
                             if(dbname.equals("Admin")){
-                                Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Logged in successfully admin", Toast.LENGTH_SHORT).show();
                                 LoadingBar.dismiss();
-                                Intent intent = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
                             }else if (dbname.equals("Users")){
                                 Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();

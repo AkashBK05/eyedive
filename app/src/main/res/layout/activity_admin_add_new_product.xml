@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".AdminAddNewProductActivity">
 
 
@@ -30,6 +31,8 @@
         android:layout_marginTop="20dp"
         android:padding="20dp"
         android:hint="Product Name..."
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/input_design"
@@ -45,6 +48,8 @@
         android:layout_marginTop="6dp"
         android:padding="20dp"
         android:hint="Product Description..."
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/input_design"
@@ -60,6 +65,8 @@
         android:layout_marginTop="6dp"
         android:padding="20dp"
         android:hint="Product Price..."
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/input_design"
