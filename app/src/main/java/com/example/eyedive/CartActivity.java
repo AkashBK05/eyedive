@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,11 +53,12 @@ public class CartActivity extends AppCompatActivity {
 
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter
                 = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
+            @SuppressLint("SetTextI18n")
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull Cart cart) {
-                cartViewHolder.txtProductQuantity.setText(" Quantity =" +cart.getQuantity());
-                cartViewHolder.txtProductPrice.setText("Price =" +cart.getPrice());
-                cartViewHolder.txtProductName.setText("Name =" +cart.getPname());
+                cartViewHolder.txtProductQuantity.setText(" Quantity =" + cart.getQuantity());
+                cartViewHolder.txtProductPrice.setText("\u20B9" + cart.getPrice());
+                cartViewHolder.txtProductName.setText(cart.getPname());
             }
 
             @NonNull

@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.eyedive.Model.Cart;
 import com.example.eyedive.Model.Products;
 import com.example.eyedive.Prevalent.Prevalent;
 import com.example.eyedive.ViewHolder.ProductViewHolder;
@@ -67,9 +66,8 @@ public class HomeActivity extends AppCompatActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this , CartActivity.class);
                 startActivity(intent);
             }
         });
@@ -118,7 +116,7 @@ public class HomeActivity extends AppCompatActivity
                     {
                         holder.txtProductName.setText(model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "Rs");
+                        holder.txtProductPrice.setText("\u20B9" + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +187,7 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_cart)
         {
-            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            Intent intent = new Intent(HomeActivity.this , CartActivity.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_orders)

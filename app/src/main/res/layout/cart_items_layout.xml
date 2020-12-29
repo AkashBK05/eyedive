@@ -41,7 +41,7 @@
             android:id="@+id/cart_product_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Price"
+            android:text="\u20B9"
             android:textColor="@android:color/white"
             android:textSize="14dp"
             android:textStyle="bold"

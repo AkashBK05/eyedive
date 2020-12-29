@@ -64,7 +64,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         saveCurrentDate = currentDate.format(calForDate.getTime());
 
         SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm:ss a");
-        saveCurrentTime = currentDate.format(calForDate.getTime());
+        saveCurrentTime = currentTime.format(calForDate.getTime());
 
        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
         int x = Integer.parseInt(productPrice.getText().toString());

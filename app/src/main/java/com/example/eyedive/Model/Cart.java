@@ -2,14 +2,18 @@ package com.example.eyedive.Model;
 
 public class Cart
 {
-    private  String pid, pname, price, quantity, discount;
+    private  String pid;
+    private String pname;
+    private Long price;
+    private String quantity;
+    private String discount;
 
     public Cart()
     {
 
     }
 
-    public Cart(String pid, String pname, String price, String quantity, String discount) {
+    public Cart(String pid, String pname, Long price, String quantity, String discount) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
@@ -33,11 +37,11 @@ public class Cart
         this.pname = pname;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
