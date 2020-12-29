@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                             LoadingBar.dismiss();
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersdata;
                             startActivity(intent);
                         }else {
                             Toast.makeText(MainActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
