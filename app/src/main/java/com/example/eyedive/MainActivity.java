@@ -55,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordkey);
+        String CurrentDb = Paper.book().read(Prevalent.db);
 
         if (UserPhoneKey !=  null && UserPasswordKey != null) {
             if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)) {
 
-                AllowAcess(UserPhoneKey,UserPasswordKey);
+                AllowAcess(UserPhoneKey,UserPasswordKey, CurrentDb);
 
                 LoadingBar.setTitle("Already logged in");
                 LoadingBar.setMessage("Please wait...");
@@ -71,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void AllowAcess(String phone, String password) {
+    private void AllowAcess(String phone, String password , String db) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child("Users").child(phone).exists()){
-                    Users usersdata = snapshot.child("Users").child(phone).getValue(Users.class);
+                if (snapshot.child(db).child(phone).exists()){
+                    Users usersdata = snapshot.child(db).child(phone).getValue(Users.class);
                     if (usersdata.getPhone().equals(phone)){
                         if (usersdata.getPassword().equals(password)){
                             Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();

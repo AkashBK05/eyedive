@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     private void LoginUser() {
         String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
+        String db = dbname;
 
         if(TextUtils.isEmpty(phone)){
             Toast.makeText(this, "Enter correct phone number", Toast.LENGTH_SHORT).show();
@@ -91,15 +92,16 @@ public class LoginActivity extends AppCompatActivity {
             LoadingBar.setCanceledOnTouchOutside(false);
             LoadingBar.show();
 
-            AllowAccessToAccount(phone,password);
+            AllowAccessToAccount(phone,password,db);
         }
 
     }
 
-    private void AllowAccessToAccount(String phone, String password) {
+    private void AllowAccessToAccount( String phone, String password , String db ) {
         if (chkBoxRememberMe.isChecked()){
             Paper.book().write(Prevalent.UserPhoneKey,phone);
             Paper.book().write(Prevalent.UserPasswordkey,password);
+            Paper.book().write(Prevalent.db,db);
         }
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -115,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Logged in successfully admin", Toast.LENGTH_SHORT).show();
                                 LoadingBar.dismiss();
                                 Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                                Prevalent.currentOnlineUser = usersdata;
                                 startActivity(intent);
                             }else if (dbname.equals("Users")){
                                 Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
