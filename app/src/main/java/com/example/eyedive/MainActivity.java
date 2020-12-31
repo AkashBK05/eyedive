@@ -83,13 +83,22 @@ public class MainActivity extends AppCompatActivity {
                     Users usersdata = snapshot.child(db).child(phone).getValue(Users.class);
                     if (usersdata.getPhone().equals(phone)){
                         if (usersdata.getPassword().equals(password)){
-                            Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                            LoadingBar.dismiss();
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            Prevalent.currentOnlineUser = usersdata;
-                            startActivity(intent);
+                            if(db.equals("Admin")){
+                                Toast.makeText(MainActivity.this, "Logged in successfully admin", Toast.LENGTH_SHORT).show();
+                                LoadingBar.dismiss();
+                                Intent intent = new Intent(MainActivity.this, AdminCategoryActivity.class);
+                                Prevalent.currentOnlineUser = usersdata;
+                                startActivity(intent);
+                            }else if (db.equals("Users")){
+                                Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                LoadingBar.dismiss();
+                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                Prevalent.currentOnlineUser = usersdata;
+                                startActivity(intent);
+                            }
                         }else {
                             Toast.makeText(MainActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                            LoadingBar.dismiss();
                         }
                     }
                 }else {

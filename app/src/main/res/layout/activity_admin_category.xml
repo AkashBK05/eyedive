@@ -31,14 +31,14 @@
         android:layout_marginTop="45dp">
 
         <ImageView
-            android:id="@+id/glasses"
+            android:id="@+id/sunglasses"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@drawable/sunglasses"
             />
 
         <ImageView
-            android:id="@+id/purses_bags_wallets"
+            android:id="@+id/eye_glasses"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@drawable/eye_glasses"
@@ -56,20 +56,37 @@
         android:layout_marginTop="45dp">
 
         <ImageView
-            android:id="@+id/hats_caps"
+            android:id="@+id/contact_lens"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@drawable/contact_lens"
             />
 
         <ImageView
-            android:id="@+id/shoes"
+            android:id="@+id/computer_glasses"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@drawable/computer_glasses"
             android:layout_marginStart="16dp"
             />
 
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear3_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear2_category_layout">
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="15dp"
+        />
     </LinearLayout>
 
 </RelativeLayout>

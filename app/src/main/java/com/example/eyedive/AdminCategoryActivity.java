@@ -5,22 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
+import io.paperdb.Paper;
+
 public class AdminCategoryActivity extends AppCompatActivity {
-    private ImageView glasses, hatsCaps, walletsBagsPurses, shoes;
+    private ImageView sunglasses, computerglasses, eyeglasses, lenses;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
 
-        glasses = (ImageView) findViewById(R.id.glasses);
-        hatsCaps = (ImageView) findViewById(R.id.hats_caps);
-        walletsBagsPurses = (ImageView) findViewById(R.id.purses_bags_wallets);
-        shoes = (ImageView) findViewById(R.id.shoes);
+        sunglasses = (ImageView) findViewById(R.id.sunglasses);
+        computerglasses = (ImageView) findViewById(R.id.computer_glasses);
+        eyeglasses = (ImageView) findViewById(R.id.eye_glasses);
+        lenses = (ImageView) findViewById(R.id.contact_lens);
+        logout = (Button) findViewById(R.id.logout_btn);
 
-        glasses.setOnClickListener(new View.OnClickListener() {
+
+
+       sunglasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -31,7 +38,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
-        hatsCaps.setOnClickListener(new View.OnClickListener() {
+        computerglasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -43,7 +50,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
 
 
 
-        walletsBagsPurses.setOnClickListener(new View.OnClickListener() {
+        eyeglasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -54,7 +61,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
-        shoes.setOnClickListener(new View.OnClickListener() {
+        lenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -63,5 +70,26 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Paper.book().destroy();
+
+                Intent intent = new Intent(AdminCategoryActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
+    @Override
+    public void onBackPressed() {
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
+
+
 }
