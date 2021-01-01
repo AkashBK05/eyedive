@@ -4,7 +4,7 @@ public class Cart
 {
     private  String pid;
     private String pname;
-    private Long price;
+    private int price;
     private String quantity;
     private String discount;
 
@@ -13,7 +13,7 @@ public class Cart
 
     }
 
-    public Cart(String pid, String pname, Long price, String quantity, String discount) {
+    public Cart(String pid, String pname, int price, String quantity, String discount) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
@@ -37,11 +37,11 @@ public class Cart
         this.pname = pname;
     }
 
-    public Long getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
