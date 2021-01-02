@@ -12,7 +12,7 @@ import io.paperdb.Paper;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView sunglasses, computerglasses, eyeglasses, lenses;
-    private Button logout;
+    private Button logout , CheckOrdersBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         eyeglasses = (ImageView) findViewById(R.id.eye_glasses);
         lenses = (ImageView) findViewById(R.id.contact_lens);
         logout = (Button) findViewById(R.id.logout_btn);
+        CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
 
 
 
@@ -80,6 +81,14 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
+                startActivity(intent);
             }
         });
     }

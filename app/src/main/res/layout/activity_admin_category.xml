@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="10dp"
         android:text="Add New Product"
         android:textAlignment="center"
         android:textSize="26sp"
@@ -28,7 +28,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/sunglasses"
@@ -53,7 +53,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/contact_lens"
@@ -73,20 +73,33 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear3_category_layout"
+
+    <Button
+        android:id="@+id/check_orders_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear2_category_layout">
+        android:layout_below="@+id/linear2_category_layout"
+        android:text="Check New Orders"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        />
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/check_orders_btn"
         android:text="Logout"
+        android:textSize="20dp"
+        android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
         />
-    </LinearLayout>
 
 </RelativeLayout>
