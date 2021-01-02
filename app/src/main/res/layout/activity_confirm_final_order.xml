@@ -29,6 +29,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/input_design"
         android:padding="15dp"
+        android:textColor="@color/colorPrimary"
         android:hint="Name"
         android:textColorHint="@color/colorPrimary"
         />
@@ -44,6 +45,7 @@
         android:hint="Phone Number"
         android:background="@drawable/input_design"
         android:padding="15dp"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         android:inputType="number"
         />
@@ -58,6 +60,7 @@
         android:layout_marginRight="20dp"
         android:hint="Home Address"
         android:background="@drawable/input_design"
+        android:textColor="@color/colorPrimary"
         android:padding="15dp"
         android:textColorHint="@color/colorPrimary"
         />
@@ -72,6 +75,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/input_design"
         android:padding="15dp"
+        android:textColor="@color/colorPrimary"
         android:hint="City"
         android:textColorHint="@color/colorPrimary"
         />
