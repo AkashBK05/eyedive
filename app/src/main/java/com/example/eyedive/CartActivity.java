@@ -155,12 +155,14 @@ public class CartActivity extends AppCompatActivity {
                     String username = snapshot.child("name").getValue().toString();
 
                     if (shippingState.equals("shipped")) {
-                        TxtTotalAmount.setText("Dear" + username + "\n oder is shipped.");
-                        recyclerView.setVisibility(View.GONE);
-                        txtmsg1.setVisibility(View.VISIBLE);
-                        txtmsg1.setText("your order has been shipped");
-                        NextProcessBtn.setVisibility(View.GONE);
-                        Toast.makeText(CartActivity.this, "you can purchase after receiving your first order", Toast.LENGTH_SHORT).show();
+
+                        onStart();
+//                        TxtTotalAmount.setText("Dear" + username + " order is shipped.");
+//                        recyclerView.setVisibility(View.GONE);
+//                        txtmsg1.setVisibility(View.VISIBLE);
+//                        txtmsg1.setText("your order has been shipped");
+//                        NextProcessBtn.setVisibility(View.GONE);
+//                        Toast.makeText(CartActivity.this, "you can purchase after receiving your first order", Toast.LENGTH_SHORT).show();
                     } else if (shippingState.equals("not shipped")) {
                         TxtTotalAmount.setText("shipping state = not shipped");
                         recyclerView.setVisibility(View.GONE);

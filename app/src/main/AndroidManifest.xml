@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EyeDive"
         tools:replace="android:theme">
-        <activity android:name=".AdminNewOrdersActivity"></activity>
+        <activity android:name=".SearchProductsActivity"></activity>
+        <activity android:name=".AdminUserProductsActivity" />
+        <activity android:name=".AdminNewOrdersActivity" />
         <activity android:name=".payActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".CartActivity" />

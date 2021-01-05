@@ -80,6 +80,21 @@
         android:textColorHint="@color/colorPrimary"
         />
 
+    <EditText
+        android:id="@+id/card_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shipment_city"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/input_design"
+        android:padding="15dp"
+        android:textColor="@color/colorPrimary"
+        android:hint="Enter card details"
+        android:textColorHint="@color/colorPrimary"
+        />
+
     <Button
         android:id="@+id/confirm_final_order_btn"
         android:layout_width="match_parent"
