@@ -1,4 +1,4 @@
-package com.example.eyedive;
+package com.example.eyedive.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.eyedive.Model.Cart;
+import com.example.eyedive.R;
 import com.example.eyedive.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

@@ -10,23 +10,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eyedive.Admin.AdminMaintainProductsActivity;
 import com.example.eyedive.Model.Products;
 import com.example.eyedive.Prevalent.Prevalent;
 import com.example.eyedive.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -45,13 +41,19 @@ public class HomeActivity extends AppCompatActivity
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-
+    private String type = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent intent= getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null){
+            type = getIntent().getExtras().get("Admin").toString();
+        }
 
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
@@ -69,8 +71,12 @@ public class HomeActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this , CartActivity.class);
-                startActivity(intent);
+                if (!type.equals("Admin")) {
+                    Intent intent = new Intent(HomeActivity.this , CartActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(HomeActivity.this, "this is available only for user", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -89,8 +95,10 @@ public class HomeActivity extends AppCompatActivity
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        if (!type.equals("Admin")){
+            userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+            Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        }
 
 
         recyclerView = findViewById(R.id.recycler_menu);
@@ -121,12 +129,19 @@ public class HomeActivity extends AppCompatActivity
                         holder.txtProductPrice.setText("\u20B9" + model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
+
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(HomeActivity.this , ProductDetailsActivity.class);
-                                intent.putExtra("pid",model.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")) {
+                                    Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                } else {
+                                    Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
                             }
                         });
                     }
@@ -189,22 +204,41 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_cart)
         {
-            Intent intent = new Intent(HomeActivity.this , CartActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")){
+                Toast.makeText(this, "this feature is available only for users", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this , CartActivity.class);
+                startActivity(intent);
+            }
+
         }
         else if (id == R.id.nav_search)
         {
-            Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")){
+                Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "this feature is available only for users", Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if (id == R.id.nav_categories)
         {
+            if (!type.equals("Admin")){
 
+            }else{
+            Toast.makeText(this, "this feature is available only for users", Toast.LENGTH_SHORT).show();
+        }
         }
         else if (id == R.id.nav_settings)
         {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")){
+
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }else{
+            Toast.makeText(this, "this feature is available only for users", Toast.LENGTH_SHORT).show();
+        }
+
         }
         else if (id == R.id.nav_logout)
         {
@@ -222,9 +256,18 @@ public class HomeActivity extends AppCompatActivity
     }
     @Override
     public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
+        if (!type.equals("Admin")) {
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
+        }else{
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                super.onBackPressed();
+            }
+        }
     }
 }

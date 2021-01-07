@@ -1,4 +1,4 @@
-package com.example.eyedive;
+package com.example.eyedive.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.eyedive.HomeActivity;
+import com.example.eyedive.MainActivity;
+import com.example.eyedive.R;
+
 import io.paperdb.Paper;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView sunglasses, computerglasses, eyeglasses, lenses;
-    private Button logout , CheckOrdersBtn;
+    private Button logout , CheckOrdersBtn , maintainProductsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +29,22 @@ public class AdminCategoryActivity extends AppCompatActivity {
         lenses = (ImageView) findViewById(R.id.contact_lens);
         logout = (Button) findViewById(R.id.logout_btn);
         CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
+        maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
 
-
-
+        maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
+                intent.putExtra("Admin","Admin");
+                startActivity(intent);
+            }
+        });
        sunglasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Glasses");
+                intent.putExtra("category", "SunGlasses");
                 startActivity(intent);
             }
         });
@@ -44,7 +55,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Hats Caps");
+                intent.putExtra("category", "computerGlasses");
                 startActivity(intent);
             }
         });
@@ -56,7 +67,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Wallets Bags Purses");
+                intent.putExtra("category", "eyeGlasses");
                 startActivity(intent);
             }
         });
@@ -67,7 +78,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "Shoes");
+                intent.putExtra("category", "lenses");
                 startActivity(intent);
             }
         });
