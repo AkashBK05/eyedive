@@ -45,6 +45,7 @@
                     android:layout_alignParentEnd="true"
                     />
 
+
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -83,7 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_image_change_btn"
         android:hint="Phone Number..."
-        android:layout_margin="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:padding="10dp"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/input_design"
@@ -96,7 +99,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/settings_phone_number"
         android:hint="Full Name..."
-        android:layout_margin="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         android:background="@drawable/input_design"
@@ -109,7 +114,49 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/settings_full_name"
         android:hint="Address..."
-        android:layout_margin="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_design"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="10dp"
+        />
+    <TextView
+        android:id="@+id/settings_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_address"
+        android:text="Change Password:"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="17dp"
+        />
+
+    <EditText
+        android:id="@+id/settings_old_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_change_password"
+        android:hint="Enter old password"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/input_design"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="10dp"
+        />
+    <EditText
+        android:id="@+id/settings_new_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_old_password"
+        android:hint="Enter new password"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:background="@drawable/input_design"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"

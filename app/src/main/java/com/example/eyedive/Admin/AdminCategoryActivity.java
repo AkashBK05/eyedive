@@ -16,7 +16,7 @@ import io.paperdb.Paper;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView sunglasses, computerglasses, eyeglasses, lenses;
-    private Button logout , CheckOrdersBtn , maintainProductsBtn;
+    private Button logout , CheckOrdersBtn , maintainProductsBtn ,passwordbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,21 @@ public class AdminCategoryActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout_btn);
         CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
         maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
+        passwordbtn = (Button) findViewById(R.id.password_btn);
 
         maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
+                intent.putExtra("Admin","Admin");
+                startActivity(intent);
+            }
+        });
+
+        passwordbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminChangePaawordActivity.class);
                 intent.putExtra("Admin","Admin");
                 startActivity(intent);
             }
@@ -48,6 +58,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
         computerglasses.setOnClickListener(new View.OnClickListener() {
