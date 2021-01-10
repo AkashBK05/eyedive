@@ -69,16 +69,6 @@
             android:textStyle="bold"
             android:layout_marginLeft="20dp"
             />
-        <TextView
-            android:id="@+id/forget_password_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="forgot passowrd?"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="150dp" />
-
 
     </LinearLayout>
 

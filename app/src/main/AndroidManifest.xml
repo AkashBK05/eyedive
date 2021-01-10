@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EyeDive"
         tools:replace="android:theme">
-        <activity android:name=".AdminNewOrdersActivity"></activity>
+        <activity android:name=".Admin.AdminChangePaawordActivity"></activity>
+        <activity android:name=".Admin.AdminMaintainProductsActivity" />
+        <activity android:name=".SearchProductsActivity" />
+        <activity android:name=".Admin.AdminUserProductsActivity" />
+        <activity android:name=".Admin.AdminNewOrdersActivity" />
         <activity android:name=".payActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".CartActivity" />
@@ -21,8 +25,8 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.EyeDive.NoActionBar" />
-        <activity android:name=".AdminCategoryActivity" />
-        <activity android:name=".AdminAddNewProductActivity" />
+        <activity android:name=".Admin.AdminCategoryActivity" />
+        <activity android:name=".Admin.AdminAddNewProductActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
