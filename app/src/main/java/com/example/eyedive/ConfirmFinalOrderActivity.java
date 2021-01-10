@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
-    private EditText NameEditText,PhoneEditText,AddressEdirText,cityEditText ,card;
+    private EditText NameEditText,PhoneEditText,AddressEdirText,cityEditText;
     private Button confirmorderbtn;
     private  String totalamt="";
 
@@ -41,7 +41,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         PhoneEditText= (EditText)findViewById(R.id.shipment_phone_number);
         AddressEdirText= (EditText)findViewById(R.id.shipment_address);
         cityEditText= (EditText)findViewById(R.id.shipment_city);
-        card = (EditText)findViewById(R.id.card_details);
+
 
         confirmorderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("date", saveCurrentDate);
         ordersMap.put("time", saveCurrentTime);
        ordersMap.put("state", "not shipped");
-       ordersMap.put("cardDetails",card.getText().toString());
+
 
        orderRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
            @Override

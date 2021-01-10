@@ -40,8 +40,8 @@ import io.paperdb.Paper;
 public class SettingsActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
-    private EditText fullNameEditText, userPhoneEditText, addressEditText , oldPassword,newPassword;
-    private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton , changepassword;
+    private EditText fullNameEditText, userPhoneEditText, addressEditText ;
+    private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton ;
 
     private Uri imageUri;
     private String myUrl = "";
@@ -65,9 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
         profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
         saveTextButton = (TextView) findViewById(R.id.update_account_settings_btn);
-        changepassword = (TextView) findViewById(R.id.settings_change_password);
-        oldPassword = findViewById(R.id.settings_old_password);
-        newPassword = findViewById(R.id.settings_new_password);
+
 
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
@@ -110,18 +108,12 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void updateOnlyUserInfo() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-//        String oldpassword = Paper.book().read(Prevalent.UserPasswordkey);
-//        String Oldpassword = oldPassword.getText().toString();
-//        String Newpassword = newPassword.getText().toString();
+
         HashMap<String, Object> userMap = new HashMap<>();
         userMap. put("name", fullNameEditText.getText().toString());
         userMap. put("address", addressEditText.getText().toString());
         userMap. put("phoneOrder", userPhoneEditText.getText().toString());
-//        if(!oldpassword.equals(Oldpassword)){
-//            Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
-//        }else{
-//            userMap.put("password",Newpassword);
-//        }
+
         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
         startActivity(new Intent(SettingsActivity.this,HomeActivity.class));
@@ -167,13 +159,6 @@ public class SettingsActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "phone is mandatory.", Toast.LENGTH_SHORT).show();
         }
-//        else if (TextUtils.isEmpty(oldPassword.getText().toString()))
-//        {
-//            Toast.makeText(this, "old password is mandatory.", Toast.LENGTH_SHORT).show();
-//        }else if (TextUtils.isEmpty(newPassword.getText().toString()))
-//        {
-//            Toast.makeText(this, "new password is mandatory.", Toast.LENGTH_SHORT).show();
-//        }
         else if(checker.equals("clicked"))
         {
             uploadImage();
@@ -229,7 +214,7 @@ public class SettingsActivity extends AppCompatActivity {
                                 userMap. put("name", fullNameEditText.getText().toString());
                                 userMap. put("address", addressEditText.getText().toString());
                                 userMap. put("phoneOrder", userPhoneEditText.getText().toString());
-                                //userMap.put("password",newPassword.getText().toString());
+
                                 userMap. put("image", myUrl);
                                 ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 

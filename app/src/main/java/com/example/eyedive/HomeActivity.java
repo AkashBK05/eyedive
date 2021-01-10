@@ -221,10 +221,11 @@ public class HomeActivity extends AppCompatActivity
             }
 
         }
-        else if (id == R.id.nav_categories)
+        else if (id == R.id.nav_changepsw)
         {
             if (!type.equals("Admin")){
-
+                Intent intent = new Intent(HomeActivity.this, UserChangePasswordActivity.class);
+                startActivity(intent);
             }else{
             Toast.makeText(this, "this feature is available only for users", Toast.LENGTH_SHORT).show();
         }

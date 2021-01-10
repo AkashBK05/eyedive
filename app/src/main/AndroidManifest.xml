@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EyeDive"
         tools:replace="android:theme">
-        <activity android:name=".Admin.AdminChangePaawordActivity"></activity>
+        <activity android:name=".UserChangePasswordActivity"></activity>
+        <activity android:name=".Admin.AdminChangePaawordActivity" />
         <activity android:name=".Admin.AdminMaintainProductsActivity" />
         <activity android:name=".SearchProductsActivity" />
         <activity android:name=".Admin.AdminUserProductsActivity" />
